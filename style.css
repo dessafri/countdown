@@ -1,110 +1,365 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
+    font-family: 'Sen', sans-serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    /* align-content: center;
-    a */
-    align-items: center;
-    background-color: #07013b;
+    background: url(bg.jpg);
     background-size: cover;
-    min-height: 100vh;
-}
-
-.clock {
-    width: 350px;
-    height: 350px;
+    background-repeat: no-repeat;
+    width: 100%;
     display: flex;
-    /* margin: auto; */
     justify-content: center;
     /* align-content: center; */
-    align-items: center;
-    background: url(jam.png);
-    background-size: cover;
-    border: 4px solid #091921;
-    border-radius: 50%;
-    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05), inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.05), inset 0 15px 15px rgba(0, 0, 0, 0.05);
-}
-
-.clock::before {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #ffffff;
-    border-radius: 50%;
-    z-index: 1000000;
-    /* top: 350px; */
-}
-
-.clock .hour,
-.clock .minute,
-.clock .second {
-    position: absolute;
     /* align-items: center; */
+    /* height: 100%; */
 }
 
-.hr,
-.mn,
-.sec {
+.title {
+    width: 100%;
     display: flex;
     justify-content: center;
-    /* position: absolute; */
-    /* border-radius: 50%; */
+    /* flex-grow: 5; */
+}
+
+.title span {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    /* width: 100%; */
+}
+
+.title,
+.year-now {
+    transform: translateY(100px);
+}
+
+.author {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.author span {
+    transform: translateY(130px);
+    font-size: 30px;
+    font-family: 'Sofia', cursive;
+    color: white;
+    font-weight: bold;
+}
+
+.year-now {
+    width: 250px;
+    height: 60px;
+    background-color: #053247;
+    /* margin-top: 60%; */
+    display: flex;
+    justify-content: center;
+    /* border-radius: 10px; */
     /* align-items: center; */
+    /* flex-grow: 2; */
+    /* width: auto */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.clock .hour .hr {
-    width: 160px;
-    height: 160px;
-}
-
-.clock .minute .mn {
-    width: 190px;
-    height: 190px;
-}
-
-.clock .second .sec {
-    width: 230px;
-    height: 230px;
-}
-
-.hr::before {
+.year-now::before {
     content: '';
+    width: 250px;
+    height: 30px;
     position: absolute;
-    width: 8px;
+    background-color: #014353;
+    /* top: 30px; */
+    margin-top: 50px;
+}
+
+.year-now h1 {
+    /* margin: auto; */
+    margin-left: 20px;
+    padding-bottom: 60px;
+    font-size: 50px;
+    letter-spacing: 15px;
+    color: white;
+    /* font-family: 'Roboto Slab', serif; */
+}
+
+.countdown {
+    width: 100%;
+    height: 1000px;
+    /* background-color: #014353; */
+    margin-top: -100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    /* align-content: space-between; */
+    box-sizing: border-box;
+}
+
+.countdown .box {
+    width: 300px;
     height: 80px;
-    background: #ff105e;
-    /* top: 100px; */
-    /* left: -5px; */
-    border-radius: 6px 6px 0 0;
-    z-index: 10;
+    background-color: #2ca1b3;
+    /* margin-right: 20px; */
+    /* margin-left: 10px; */
+    /* padding: 20px; */
+    margin-top: 20px;
+    /* margin-left: 0px; */
+    /* display: flex;
+    flex-wrap: wrap; */
+    padding-left: 50px;
+    padding-top: 20px;
+    box-sizing: border-box;
 }
 
-.mn::before {
+.countdown .box.months::after {
     content: '';
     position: absolute;
-    width: 4px;
-    height: 90px;
-    background: #ffffff;
-    /* top: 90px; */
-    /* left: -3px; */
-    border-radius: 6px 6px 0 0;
-    z-index: 11;
+    width: 300px;
+    height: 15px;
+    background-color: #014353;
+    /* left: 50px; */
+    margin-top: 60px;
+    transform: translateX(-190px);
+    box-sizing: border-box;
+    /* margin-bottom: 10px; */
 }
 
-.sec::before {
+.countdown .box.days::after {
     content: '';
     position: absolute;
-    width: 2px;
-    height: 140px;
-    background: yellow;
-    /* top: 70px; */
-    /* left: -1px; */
-    border-radius: 6px 6px 0 0;
-    z-index: 12;
+    width: 300px;
+    height: 15px;
+    background-color: #014353;
+    /* left: 50px; */
+    margin-top: 60px;
+    transform: translateX(-170px);
+    /* margin-bottom: 10px; */
+    box-sizing: border-box;
+}
+
+.countdown .box.hours::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 15px;
+    background-color: #014353;
+    /* left: 50px; */
+    margin-top: 60px;
+    transform: translateX(-177px);
+    /* margin-bottom: 10px; */
+}
+
+.countdown .box.minutes::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 15px;
+    background-color: #014353;
+    /* left: 50px; */
+    margin-top: 60px;
+    transform: translateX(-177px);
+    /* margin-bottom: 10px; */
+}
+
+.countdown .box.seconds::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 15px;
+    background-color: #014353;
+    /* left: 50px; */
+    margin-top: 60px;
+    transform: translateX(-177px);
+    /* margin-bottom: 10px; */
+}
+
+
+/* .countdown .box {
+    display: flex;
+} */
+
+.countdown .box span:first-child {
+    margin: auto;
+    font-size: 50px;
+    color: white;
+    letter-spacing: 5px;
+    /* width: 100%; */
+}
+
+@media(min-width: 768px) {
+    .container {
+        width: 1200px;
+        height: 600px;
+        background: transparent;
+        /* background: orange; */
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        align-content: center;
+        flex-wrap: wrap;
+        background-size: cover;
+        box-sizing: border-box;
+        margin: auto;
+        box-shadow: 0px -1px 19px 6px rgba(130, 130, 130, 1);
+    }
+    .title,
+    .year-now {
+        transform: translateY(40px);
+    }
+    .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* flex-grow: 5; */
+    }
+    .title span {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        /* width: 100%; */
+    }
+    .author {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .author span {
+        transform: translateY(130px);
+        font-size: 30px;
+        font-family: 'Sofia', cursive;
+        color: white;
+        font-weight: bold;
+    }
+    /* .titlem.year-now {
+    margin: auto;
+} */
+    .year-now {
+        width: 350px;
+        height: 100px;
+        background-color: #053247;
+        /* margin-top: 60%; */
+        display: flex;
+        justify-content: center;
+        /* border-radius: 10px; */
+        /* align-items: center; */
+        /* flex-grow: 2; */
+        /* width: auto */
+    }
+    .year-now::before {
+        content: '';
+        width: 350px;
+        height: 30px;
+        position: absolute;
+        background-color: #014353;
+        /* top: 30px; */
+        margin-top: 100px;
+    }
+    .year-now h1 {
+        /* margin: auto; */
+        margin-left: 20px;
+        padding-bottom: 60px;
+        font-size: 90px;
+        letter-spacing: 15px;
+        color: white;
+        /* font-family: 'Roboto Slab', serif; */
+    }
+    .countdown {
+        width: 1000px;
+        height: 200px;
+        /* background-color: #014353; */
+        margin-top: 150px;
+        display: flex;
+        justify-content: center;
+        /* align-content: center; */
+        /* align-content: space-between; */
+    }
+    .countdown .box {
+        width: 15%;
+        height: 100px;
+        background-color: #2ca1b3;
+        /* margin-right: 20px; */
+        /* margin-left: 10px; */
+        padding: 20px;
+        box-sizing: border-box;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .countdown .box.months::after {
+        content: '';
+        position: absolute;
+        width: 11%;
+        height: 34px;
+        background-color: #014353;
+        /* left: 50px; */
+        margin-top: 80px;
+        transform: translateX(-20px);
+    }
+    .countdown .box.days::after {
+        content: '';
+        position: absolute;
+        width: 11%;
+        height: 34px;
+        background-color: #014353;
+        /* left: 50px; */
+        margin-top: 80px;
+        transform: translateX(-20px);
+    }
+    .countdown .box.hours::after {
+        content: '';
+        position: absolute;
+        width: 11%;
+        height: 34px;
+        background-color: #014353;
+        /* left: 50px; */
+        margin-top: 80px;
+        transform: translateX(-20px);
+    }
+    .countdown .box.minutes::after {
+        content: '';
+        position: absolute;
+        width: 11%;
+        height: 34px;
+        background-color: #014353;
+        /* left: 50px; */
+        margin-top: 80px;
+        transform: translateX(-20px);
+    }
+    .countdown .box.seconds::after {
+        content: '';
+        position: absolute;
+        width: 11%;
+        height: 34px;
+        background-color: #014353;
+        /* left: 50px; */
+        margin-top: 80px;
+        transform: translateX(-20px);
+    }
+    .countdown .box.days::after {
+        content: '';
+        position: absolute;
+        width: 11%;
+        height: 34px;
+        background-color: #014353;
+        /* left: 50px; */
+        margin-top: 80px;
+        transform: translateX(-20px);
+    }
+    .countdown .box span {
+        margin: auto;
+        font-size: 50px;
+        color: white;
+        letter-spacing: 5px;
+        /* width: 100%; */
+    }
+    .countdown .box span:last-child {
+        font-size: 20px;
+        margin-top: 26px;
+        z-index: 10000;
+        transform: translateX(-10px);
+        /* transform: translate3d(); */
+    }
 }

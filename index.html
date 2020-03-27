@@ -4,41 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jam</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Sen|Sofia&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="clock">
-        <div class="hour">
-            <div class="hr" id="hr"></div>
+
+    <div class="container">
+        <div class="title">
+            <span>Next Year Countdown</span>
         </div>
-        <div class="minute">
-            <div class="mn" id="mn"></div>
+        <div class="year-now">
+            <h1 id="year"></h1>
         </div>
-        <div class="second">
-            <div class="sec" id="sec"></div>
+
+        <div class="author">
+            <span>BY : DES SAFRI </span>
+        </div>
+
+        <div class="countdown">
+            <div class="box months">
+                <span id="months">00</span>
+                <span>Months</span>
+            </div>
+            <div class="box days">
+                <span id="days">00</span>
+                <span>Days</span>
+            </div>
+            <div class="box hours">
+                <span id="hours">00</span>
+                <span id="spanHours">Hours</span>
+
+
+            </div>
+            <div class="box minutes">
+                <span id="minutes">00</span>
+                <span id="spanMinutes">Minutes</span>
+
+            </div>
+            <div class="box seconds">
+                <span id="seconds">00</span>
+                <span>seconds</span>
+
+
+            </div>
         </div>
     </div>
 
     <script>
-        let deg = 580;
-        const hr = document.querySelector('#hr');
-        const mn = document.querySelector('#mn');
-        const sec = document.querySelector('#sec');
+        function clock() {
+            let years = document.querySelector('#year')
+            let months = document.querySelector('#months');
+            let days = document.querySelector('#days');
+            let hours = document.querySelector('#hours');
+            let minutes = document.querySelector('#minutes');
+            let seconds = document.querySelector('#seconds');
 
-
-        setInterval(() => {
             let day = new Date();
-            let hh = day.getHours() + 40;
-            let mm = day.getMinutes() + deg;
-            let ss = day.getSeconds() + deg;
-            hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`
-            mn.style.transform = `rotateZ(${(mm)}deg)`;
-            sec.style.transform = `rotateZ(${(ss)}deg)`;
 
-        })
+            years.innerHTML = day.getFullYear() + 1;
+            months.innerHTML = 11 - day.getMonth();
+            days.innerHTML = 30 - day.getDate();
+            hours.innerHTML = 24 - day.getHours();
+            minutes.innerHTML = 60 - day.getMinutes() - 1;
+            seconds.innerHTML = 60 - day.getSeconds();
+
+            // if (minutes.innerHTML.length <= 5) {
+            //     minutes.setAttribute("style", "font-size:40px; margin-left:-10px; transform:translateY(10px); ")
+            //     document.querySelector('#spanMinutes').style.transform = "translateY(10px)";
+            // }
+
+
+            if (days.innerHTML.length == 1) {
+                days.innerHTML = `0${30 - day.getDate()} `
+
+            }
+            if (hours.innerHTML.length == 1) {
+                hours.innerHTML = `0${24 - day.getHours()} `
+
+            }
+            if (minutes.innerHTML.length == 1) {
+                minutes.innerHTML = `0${60 - day.getMinutes()} `
+            }
+            if (months.innerHTML.length == 1) {
+                months.innerHTML = `0${11 - day.getMonth()} `
+
+            }
+            if (seconds.innerHTML.length == 1) {
+                seconds.innerHTML = `0${60 - day.getSeconds()} `
+
+            }
+
+            // if (hours.innerHTML.length >= 4) {
+            //     hours.setAttribute("style", "font-size:40px; transform:translateY(10px)");
+            //     // hours.style.transform = "";
+            //     document.querySelector('#spanHours').style.transform = "translateY(10px)"
+            //         // hours.style.transform = "translateX(0px)"
+            // }
+
+            // console.log(lenghtHours)
+
+
+        }
+
+        // clock()
+        setInterval(clock, 1)
     </script>
+
 </body>
 
 </html>
